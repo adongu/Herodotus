@@ -1,9 +1,6 @@
- require_relative 'db_connection'
+require_relative 'db_connection'
 require 'active_support/inflector'
 require 'byebug'
-# NB: the attr_accessor we wrote in phase 0 is NOT used in the rest
-# of this project. It was only a warm up.
-
 class SQLObject
   def self.columns
     # cols is hash of value
@@ -14,7 +11,7 @@ class SQLObject
         #{self.table_name}
     SQL
     )
-    # array of columns in :names
+
     @syms ||= @cols.first.map do |col|
       col.to_sym
     end
@@ -88,33 +85,45 @@ class SQLObject
   end
 
   def attribute_values
-    @attributes.map do |col, val|
-      val
-    end
-    #
+    self.class.columns.map { |attr|
+      self.send(attr)
+    }
   end
 
   def insert
     #  array of columns in :names
     num_commas = self.class.columns.length - 1
-    commas = ["?"] * num_commas
+    quest_marks = (["?"] * num_commas).join(",")
 
     col = attributes.keys.join(",")
-    quest_marks = commas.join(",")
-
-    DBConnection.execute(<<-SQL, attribute_values)
+    DBConnection.execute(<<-SQL, *attribute_values.drop(1))
       INSERT INTO
-        #{self.class.table_name}, #{col}
+        #{self.class.table_name} (#{col})
       VALUES
-        #{quest_marks}
+        (#{quest_marks})
     SQL
+    self.id = DBConnection.last_insert_row_id
   end
 
   def update
-    # ...
+    col = self.class.columns.drop(1).map { |attr_name| "#{attr_name}=?" }.join(",")
+
+    DBConnection.execute(<<-SQL, *attribute_values.drop(1))
+      update
+        #{self.class.table_name}
+      SET
+        #{col}
+      WHERE
+        id = (#{self.id})
+    SQL
+
   end
 
   def save
-    # ...
+    if self.id.nil?
+      self.insert
+    else
+      self.update
+    end
   end
 end
