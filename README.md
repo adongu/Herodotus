@@ -7,6 +7,7 @@ Herodotus can perform core CRUD methods with associations.
 
 ##Demo
 1. Create SQLite3 tables with SQL like so:
+
 ```sql
 CREATE TABLE names (
   id INTEGER PRIMARY KEY,
@@ -21,24 +22,10 @@ CREATE TABLE names (
 
 ##API
 Querying is made easy with core features like:
+* `::find`
 * `::where`
-  ```ruby
-  def where(params)
-    where_line = params.map { |key, _| "#{key.to_sym} = ?" }.join(" AND ")
-    paramsValues = params.values
-    query = DBConnection.execute(<<-SQL, *paramsValues)
-      SELECT
-        *
-      FROM
-        #{table_name}
-      WHERE
-        #{where_line}
-    SQL
-    parse_all(query)
-    ```
-* `#find`
-* `::insert`
-* `::update`
+* `#insert`
+* `#update`
 * `::all`
 * `::table_name`
 * `::columns`
