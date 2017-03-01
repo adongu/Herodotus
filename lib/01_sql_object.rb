@@ -3,7 +3,6 @@ require 'active_support/inflector'
 require 'byebug'
 class SQLObject
   def self.columns
-    # cols is hash of value
     @cols ||= (DBConnection.execute2(<<-SQL)
       SELECT
         *
@@ -11,7 +10,6 @@ class SQLObject
         #{self.table_name}
     SQL
     )
-    # debugger
     @syms ||= @cols.first.map do |col|
       col.to_sym
     end
@@ -39,7 +37,6 @@ class SQLObject
   end
 
   def self.all
-    # array of hashes of rows
 
   rows = DBConnection.execute(<<-SQL)
       SELECT
@@ -50,7 +47,6 @@ class SQLObject
 
     parse_all(rows)
   end
-# results is array of hashes of rows
   def self.parse_all(results)
     debugger
     results.map do |el|
@@ -92,7 +88,6 @@ class SQLObject
   end
 
   def insert
-    #  array of columns in :names
     num_commas = self.class.columns.length - 1
     quest_marks = (["?"] * num_commas).join(",")
 

@@ -2,3 +2,5 @@
 .byebug_history
 
 /spec
+cats.db
+cats.sql
