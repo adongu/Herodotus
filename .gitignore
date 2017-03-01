@@ -2,6 +2,6 @@
 .byebug_history
 .rspec
 
-**/bin/spec
+./spec
 cats.db
 cats.sql
