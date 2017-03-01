@@ -11,11 +11,10 @@ class SQLObject
         #{self.table_name}
     SQL
     )
-
+    # debugger
     @syms ||= @cols.first.map do |col|
       col.to_sym
     end
-
   end
 
   def self.finalize!
@@ -53,6 +52,7 @@ class SQLObject
   end
 # results is array of hashes of rows
   def self.parse_all(results)
+    debugger
     results.map do |el|
       self.new(el)
     end
@@ -76,7 +76,7 @@ class SQLObject
   def initialize(params = {})
     params.each do |col, val|
       raise "unknown attribute '#{col}'" unless self.class.columns.include?(col.to_sym)
-      self.send("#{col}=", val)
+      self.send("#{col.to_sym}=", val)
     end
   end
 
@@ -85,6 +85,7 @@ class SQLObject
   end
 
   def attribute_values
+    debugger
     self.class.columns.map { |attr|
       self.send(attr)
     }

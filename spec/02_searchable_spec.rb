@@ -32,8 +32,8 @@ describe 'Searchable' do
   it '#where searches with multiple criteria' do
     humans = Human.where(fname: 'Matt', house_id: 1)
     expect(humans.length).to eq(1)
-
     human = humans[0]
+    debugger
     expect(human.fname).to eq('Matt')
     expect(human.house_id).to eq(1)
   end
