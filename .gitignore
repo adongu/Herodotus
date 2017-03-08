@@ -1,6 +1,6 @@
 .rspec
 
-./spec
+spec
 cats.db
 cats.sql
 

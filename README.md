@@ -1,6 +1,6 @@
 #Herodotus
 
-A lightweight Ruby ORM inspired by ActiveRecords from Ruby on Rails. Herodotus converts tables in Sqlite3 dtatbase into Herodotus::SQLObject class
+A lightweight Ruby ORM inspired by ActiveRecords from Ruby on Rails. Herodotus converts tables in Sqlite3 database into Herodotus::SQLObject class
 
 Herodotus can perform core CRUD methods with associations.
 
@@ -18,7 +18,7 @@ CREATE TABLE names (
 )
 ```
 2. Create database with `sqlite3 tables.db < script_name.sql`
-3. Open Sqlite3 data base with: `sqlite3 tables.db`
+3. Open Sqlite3 database with: `sqlite3 tables.db`
 
 ##API
 Querying is made easy with core features like:

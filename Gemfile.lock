@@ -11,6 +11,7 @@ GEM
     diff-lcs (1.2.5)
     i18n (0.7.0)
     minitest (5.10.1)
+    pg (0.19.0)
     rspec (3.1.0)
       rspec-core (~> 3.1.0)
       rspec-expectations (~> 3.1.0)
@@ -34,6 +35,7 @@ PLATFORMS
 DEPENDENCIES
   activesupport
   byebug
+  pg
   rspec (~> 3.1.0)
   sqlite3
 
