@@ -5,7 +5,7 @@ A lightweight Ruby ORM inspired by ActiveRecords from Ruby on Rails. Herodotus c
 Herodotus can perform core CRUD methods with associations.
 
 
-##Demo
+## Demo
 1. Create SQLite3 tables with SQL like so:
 
 ```sql
@@ -20,7 +20,7 @@ CREATE TABLE names (
 2. Create database with `sqlite3 tables.db < script_name.sql`
 3. Open Sqlite3 database with: `sqlite3 tables.db`
 
-##API
+## API
 Querying is made easy with core features like:
 * `::find`
 * `::where`
@@ -38,6 +38,6 @@ Herodotus offers ActiveRecord associations like features such as:
 - [ ] `::belongs_to`
 - [ ] `::has_one_through`
 
-##Library
+## Library
 * SQLite3
 * ActiveSupport::Inflector
