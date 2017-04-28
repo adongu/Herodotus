@@ -1,4 +1,4 @@
-#Herodotus
+# Herodotus
 
 A lightweight Ruby ORM inspired by ActiveRecords from Ruby on Rails. Herodotus converts tables in Sqlite3 database into Herodotus::SQLObject class
 
