@@ -47,7 +47,6 @@ class SQLObject
     parse_all(rows)
   end
   def self.parse_all(results)
-    debugger
     results.map do |el|
       self.new(el)
     end
@@ -80,7 +79,6 @@ class SQLObject
   end
 
   def attribute_values
-    debugger
     self.class.columns.map { |attr|
       self.send(attr)
     }
