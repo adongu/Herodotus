@@ -31,12 +31,12 @@ Querying is made easy with core features like:
 * `::columns`
 * `::attributes`
 * `::save`
-* [ ] `chain query commands without hitting database`
+* [x]`chain query commands without hitting database`
 
 Herodotus offers ActiveRecord associations like features such as:
 - [x] `::has_many`
-- [ ] `::belongs_to`
-- [ ] `::has_one_through`
+- [x] `::belongs_to`
+- [x] `::has_one_through`
 
 ## Library
 * SQLite3
