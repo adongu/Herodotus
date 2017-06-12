@@ -1,6 +1,6 @@
 require_relative "../lib/db_connection.rb"
 require_relative "../lib/associatable.rb"
-require_relative "../sql_object.rb"
+require_relative "../lib/sql_object.rb"
 
 DB = "car.db"
 SQL = "car.sql"
