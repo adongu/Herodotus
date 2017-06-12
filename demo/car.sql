@@ -48,4 +48,6 @@ VALUES
   INSERT INTO
     repairs (id, name, car_id)
   VALUES
-    (1, Broken Windshield, )
+    (1, Broken Windshield, 1),
+    (2, Broken Bumpers, 1),
+    (3, Dead Battery, 3)
