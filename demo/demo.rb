@@ -14,13 +14,13 @@ class Owner < SQLObject
 end
 
 class Car < SQLObject
-  has_one :owner
+  has_many :owner
   has_many :parts
 
   finalize!
 end
 
-class Part < SQLObject
+class Repair < SQLObject
   belongs_to :car
   has_one_through :owner, :car, :owner
 
