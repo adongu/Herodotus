@@ -1,6 +1,6 @@
-CREATE TABLE owners (
+CREATE TABLE owners(
   id INTEGER PRIMARY KEY,
-  name VARCHAR(255) NOT NULL,
+  name VARCHAR(255) NOT NULL UNIQUE
 );
 
 CREATE TABLE cars (
@@ -8,16 +8,16 @@ CREATE TABLE cars (
   name VARCHAR(255) NOT NULL,
   brand VARCHAR(255) NOT NULL,
   year INTEGER NOT NULL,
-  owner_id INTEGER NOT NULL UNIQUE,
+  owner_id INTEGER NOT NULL,
   FOREIGN KEY(owner_id) REFERENCES owners(id)
 );
 
 CREATE TABLE repairs (
   id INTEGER PRIMARY KEY,
   name VARCHAR(255) NOT NULL,
-  car_id INTEGER NOT NULL UNIQUE,
-  FOREIGN_KEY car_id REFERENCES cars(id)
+  car_id INTEGER NOT NULL, FOREIGN KEY(car_id) REFERENCES cars(id)
 );
+
 
 INSERT INTO
   owners (id, name)
@@ -30,7 +30,7 @@ VALUES
   (6, "Hank Schrader"),
   (7, "Walter White Jr."),
   (8, "Tuco Salamanca"),
-  (9, "Marie Schrader")
+  (9, "Marie Schrader");
 
   INSERT INTO
     cars (id, name, brand, year, owner_id)
@@ -42,12 +42,12 @@ VALUES
     (5, "V70", "Volvo", 2005, 5),
     (6, "Commander", "Jeep", 2007, 6),
     (7, "Beetle", "Volkswagen", 2009, 9),
-    (8, "DeVille", "Cadillac", 1999, 3)
+    (8, "DeVille", "Cadillac", 1999, 3);
 
 
   INSERT INTO
     repairs (id, name, car_id)
   VALUES
-    (1, Broken Windshield, 1),
-    (2, Broken Bumpers, 1),
-    (3, Dead Battery, 3)
+    (1, "Broken Windshield", 1),
+    (2, "Broken Bumpers", 1),
+    (3, "Dead Battery", 3);
