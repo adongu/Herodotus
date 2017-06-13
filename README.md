@@ -4,6 +4,10 @@ A lightweight Ruby ORM inspired by ActiveRecords from Ruby on Rails. Herodotus c
 
 Herodotus can perform core CRUD methods with associations.
 
+## Demo
+1. `$cd` into "demo folder"
+2. Run demo by `$ruby demo.rb`
+
 
 ## Instructions
 1. Create SQLite3 tables with SQL like so:
