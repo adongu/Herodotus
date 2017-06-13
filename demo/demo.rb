@@ -7,15 +7,15 @@ SQL = "car.sql"
 
 
 class Owner < SQLObject
-  has_one :car
-  has_many_through :parts, :car, :parts
+  has_many :cars
+  has_many_through :repairs, :car, :repairs
 
   finalize!
 end
 
 class Car < SQLObject
-  has_many :owner
-  has_many :parts
+  belongs_to :owner
+  has_many :repairs
 
   finalize!
 end
